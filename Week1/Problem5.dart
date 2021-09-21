@@ -6,24 +6,30 @@ int power(int a, int n) {
   return b;
 }
 
-void main() {
-  var too = 153;
-  var too1 = too, too2 = 0, too3 = 0, digit, i = 0;
+void armstrong(var number) {
+  var too1 = number, temp = 0, digit, i;
 
-  while (too2 < too) {
-    while (too1 > 0) {
-      digit = too1 % 10;
-      too3 = too3 + power(digit, i);
-      too1 = too1 ~/ 10;
-    }
-    too1 = too;
-    too2 = too3;
-    too3 = 0;
-    i++;
+  i = number.toString().length;
+
+  while (too1 > 0) {
+    digit = too1 % 10;
+    temp = temp + power(digit, i);
+    too1 = too1 ~/ 10;
   }
-  if (too2 == too) {
-    print('$too нь Армстронгийн тоо мөн');
+
+  if (temp == number) {
+    print('$number нь Армстронгийн тоо мөн');
   } else {
-    print('$too нь Армстронгийн тоо биш');
+    print('$number нь Армстронгийн тоо биш');
   }
+}
+
+void main() {
+  armstrong(9);
+  armstrong(10);
+  armstrong(153);
+  armstrong(154);
+  armstrong(370);
+  armstrong(1000);
+  armstrong(9474);
 }
